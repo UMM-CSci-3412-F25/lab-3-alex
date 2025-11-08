@@ -1,12 +1,29 @@
 #include "mergesort.h"
+#include <stdlib.h>   // for calloc, free
+
+static void merge(int *a, int left, int mid, int right) {
+    int n = right - left + 1;
+
+    int *temp = calloc((size_t)n, sizeof(int));
+    if (temp == NULL) {
+        return;
+
+    }
+
+    int i = left;      // left subarray index
+    int j = mid + 1;   // right subarray index
+    int k = 0;         // temp index
+
+    while (i <= mid && j <= right) {
+        if (a[i] <= a[j]) {
+            temp[k++] = a[i++];
+        } else {
+            temp[k++] = a[j++];
+        }
+    }
+}
 
 void mergesort(int size, int values[]) {
-  // This obviously doesn't actually do any *sorting*, so there's
-  // certainly work still to be done.
-  //
-  // Remember that a key goal here is to learn to use
-  // `malloc/calloc` and `free`, so make sure you explicitly
-  // allocate any new arrays that you need, even if you
-  // might not strictly need to.
+
   return;
 }
