@@ -23,6 +23,9 @@ static void merge(int *a, int left, int mid, int right) {
     }
 }
 
+static void mergesort_rec(int *a, int left, int right) {
+}
+
 void mergesort(int size, int values[]) {
 
   return;
