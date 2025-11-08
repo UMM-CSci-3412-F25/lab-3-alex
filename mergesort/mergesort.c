@@ -10,8 +10,8 @@ static void merge(int *a, int left, int mid, int right) {
 
     }
 
-    int i = left;      // left subarray index
-    int j = mid + 1;   // right subarray index
+    int i = left;      // left sub-array index
+    int j = mid + 1;   // right sub-array index
     int k = 0;         // temp index
 
     while (i <= mid && j <= right) {
@@ -21,6 +21,21 @@ static void merge(int *a, int left, int mid, int right) {
             temp[k++] = a[j++];
         }
     }
+
+    while (i <= mid) { //copy the remaining from left.
+        temp[k++] = a[i++];
+    }
+
+    while (j <= right) { //copy the remaining from right.
+        temp[k++] = a[j++];
+    }
+
+    for (k = 0; k < n; k++) { //copy back into original array.
+        a[left + k] = temp[k];
+    }
+
+    free(temp);
+
 }
 
 static void mergesort_rec(int *a, int left, int right) {
