@@ -24,6 +24,15 @@ static void merge(int *a, int left, int mid, int right) {
 }
 
 static void mergesort_rec(int *a, int left, int right) {
+    if (left >= right) {
+        return; // 0 or 1 element
+    }
+
+    int mid = left + (right - left) / 2;
+
+        mergesort_recursive(a, left, mid);
+        mergesort_recursive(a, mid + 1, right);
+        merge(a, left, mid, right);
 }
 
 void mergesort(int size, int values[]) {
