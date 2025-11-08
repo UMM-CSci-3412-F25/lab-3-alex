@@ -45,8 +45,8 @@ static void mergesort_rec(int *a, int left, int right) { //Note: Test this when 
 
     int mid = left + (right - left) / 2;
 
-        mergesort_recursive(a, left, mid);
-        mergesort_recursive(a, mid + 1, right);
+        mergesort_rec(a, left, mid);
+        mergesort_rec(a, mid + 1, right);
         merge(a, left, mid, right);
 }
 
@@ -54,5 +54,5 @@ void mergesort(int size, int values[]) { //Made the previous function (mergesort
     if (size <= 1 || values == NULL) {
         return;
     }
-    mergesort_recursive(values, 0, size - 1);
+    mergesort_rec(values, 0, size - 1);
 }
